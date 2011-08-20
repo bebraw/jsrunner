@@ -12,7 +12,7 @@ tests('Color', {
         c: color()
     },
     initialValue: function() { // actual test
-        assert(this.c.r()).equals(0); // do some actual tests now
+        assert(this.c.r()).equals(0); // do some actual asserts now
         // in this case we're using jsassert. you can use whatever
         // assert method you want
     },
