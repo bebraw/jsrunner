@@ -31,9 +31,26 @@ In order to get the tests run, define some kind of HTML file as follows:
         .passed {
             color: green;
         }
-    
+        
         .failed {
             color: red;
+            padding-top: 0.5em;
+        }
+        
+        .started {
+            padding-top: 0.5em;
+            font-weight: bold;
+        }
+
+        .finished {
+            border: 1px solid black;
+            margin-top: 0.5em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+        
+        #playback {
+            font-weight: bold;
         }
     </style>
     <script type="text/javascript" src="assert.js"></script>
@@ -42,6 +59,8 @@ In order to get the tests run, define some kind of HTML file as follows:
     <script type="text/javascript">
         window.onload = function() {
             var outputArea = document.getElementById('testOutput');
+
+            document.body.insertBefore(tests.playbackUI(), document.body.childNodes[0]);
 
             tests().run({
                 output: tests.HTMLOutput(outputArea), // sink for output
@@ -57,3 +76,5 @@ In order to get the tests run, define some kind of HTML file as follows:
 ```
 
 As you can see tests().run provides an output hook that you may attach your handler to. This handler receives report (individual test) containing its text and state (started, passed, failed, error, finished). "tests" also contains two predefined sinks, consoleOutput and HTMLOutput, that may you might find handy.
+
+In addition tests contains simple playbackUI you might want to use. It makes it possible to stop the playback and resume it later (FIXME: currently expects that the runner is already running).
