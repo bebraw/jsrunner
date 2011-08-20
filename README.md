@@ -6,6 +6,7 @@ The runner consists of one function: "tests". It is used both to collect tests t
 
 A simple test set may look like this:
 
+```javascript
     tests('Color', {
         _: { // set up
             c: color()
@@ -17,9 +18,11 @@ A simple test set may look like this:
         },
         ... // more tests
     });
+```
 
 In order to get the tests run, define some kind of HTML file as follows:
 
+```html
     <html>
     <head>
         <title>Tests</title>
@@ -62,3 +65,4 @@ In order to get the tests run, define some kind of HTML file as follows:
         <div id="testOutput"></div>
     </body>
     </html>
+```
