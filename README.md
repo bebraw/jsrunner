@@ -43,19 +43,8 @@ In order to get the tests run, define some kind of HTML file as follows:
         window.onload = function() {
             var outputArea = document.getElementById('testOutput');
 
-            // define a couple of sinks for output
-            var HTMLOutput = function(report) {
-                outputArea.innerHTML += '<div class="' + report.state +
-                    '">' + report.text + '</div>';
-            };
-
-            var consoleOutput = function(report) {
-                console.log(report.text);
-            };
-
-            // empty "tests" contains run
             tests().run({
-                output: HTMLOutput, // sink for output
+                output: tests.HTMLOutput(outputArea), // sink for output
                 refresh: 2000 // in ms, default zero
             });
         }
@@ -67,4 +56,4 @@ In order to get the tests run, define some kind of HTML file as follows:
 </html>
 ```
 
-As you can see tests().run provides an output hook that you may attach your handler to. This handler receives report (individual test) containing its text and state (passed, failed).
+As you can see tests().run provides an output hook that you may attach your handler to. This handler receives report (individual test) containing its text and state (started, passed, failed, error, finished). "tests" also contains two predefined sinks, consoleOutput and HTMLOutput, that may you might find handy.
