@@ -27,32 +27,8 @@ In order to get the tests run, define some kind of HTML file as follows:
 <head>
     <title>Tests</title>
 
-    <style type="text/css">
-        .passed {
-            color: green;
-        }
-        
-        .failed {
-            color: red;
-            padding-top: 0.5em;
-        }
-        
-        .started {
-            padding-top: 0.5em;
-            font-weight: bold;
-        }
+    <link rel="stylesheet" type="text/css" href="../css/runner.css" />
 
-        .finished {
-            border: 1px solid black;
-            margin-top: 0.5em;
-            padding-top: 0.5em;
-            padding-bottom: 0.5em;
-        }
-        
-        #playback {
-            font-weight: bold;
-        }
-    </style>
     <script type="text/javascript" src="assert.js"></script>
     <script type="text/javascript" src="runner.js"></script>
     <script type="text/javascript" src="tests.js"></script>
